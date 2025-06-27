@@ -39,6 +39,12 @@ This project provides encryption and decryption tools:
 
 ---
 
+> **作者寄语 / Author's Note:**  
+> 这是我的第一个加密与安全开发项目。希望我的学习之路能激励同样起步的你。每一位专家都曾是新手——请继续努力、持续学习！  
+> This is my very first project in cryptography and secure software development. I am excited to share my learning journey and hope this work inspires others who are just starting out. Every expert was once a beginner—keep building, keep learning!
+
+---
+
 ## 安装依赖 / Install Dependencies
 
 ```bash
