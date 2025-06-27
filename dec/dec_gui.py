@@ -5,6 +5,7 @@ from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP, AES
 from Crypto.Util.Padding import unpad
 import threading
+import sys
 
 
 def decrypt_file(enc_file, enc_aes_key_file, privkey_file, output_file, status_callback=None):
@@ -59,7 +60,7 @@ def run_decrypt_thread():
 
 
 def browse_file(entry, filetypes=None):
-    path = filedialog.askopenfilename(filetypes=filetypes)
+    path = filedialog.askopenfilename(filetypes=filetypes or [("All files", "*.*")])
     if path:
         entry.delete(0, tk.END)
         entry.insert(0, path)
@@ -69,6 +70,18 @@ def browse_save_file(entry):
     if path:
         entry.delete(0, tk.END)
         entry.insert(0, path)
+
+def open_output_dir():
+    path = output_entry.get()
+    if path:
+        folder = os.path.dirname(path)
+        if os.path.isdir(folder):
+            if sys.platform == 'win32':
+                os.startfile(folder)
+            elif sys.platform == 'darwin':
+                os.system(f'open "{folder}"')
+            else:
+                os.system(f'xdg-open "{folder}"')
 
 # --- GUI Setup ---
 root = tk.Tk()
@@ -109,6 +122,8 @@ output_entry = tk.Entry(frame, width=50)
 output_entry.grid(row=3, column=1, padx=5)
 output_browse = tk.Button(frame, text='Browse...', command=lambda: browse_save_file(output_entry))
 output_browse.grid(row=3, column=2)
+output_open_dir = tk.Button(frame, text='Open Dir', command=open_output_dir)
+output_open_dir.grid(row=3, column=3, padx=5)
 
 # Status label
 status_label = tk.Label(frame, text='')

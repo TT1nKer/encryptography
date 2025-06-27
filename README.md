@@ -16,7 +16,7 @@
       - [示例 / Example](#示例--example)
     - [图形界面加密工具 / GUI Encryption Tool](#图形界面加密工具--gui-encryption-tool)
     - [功能说明 / Features](#功能说明--features)
-  - [解密工具 dec.py, dec\_gui.py / Decryption Tools](#解密工具-decpy-dec_guipy--decryption-tools)
+  - [解密工具 dec/dec.py, dec/dec\_gui.py / Decryption Tools](#解密工具-decdecpy-decdec_guipy--decryption-tools)
     - [命令行解密工具 / Command-line Decryption Tool](#命令行解密工具--command-line-decryption-tool)
       - [示例 / Example](#示例--example-1)
     - [图形界面解密工具 / GUI Decryption Tool](#图形界面解密工具--gui-decryption-tool)
@@ -29,13 +29,13 @@
 
 ## 简介 / Introduction
 
-本项目提供两种加密和解密工具：
+本项目提供加密和解密工具：
 - `enc/enc.py`、`enc/enc_gui.py`：加密工具（命令行和图形界面）
-- `dec.py`、`dec_gui.py`：解密工具（命令行和图形界面）
+- `dec/dec.py`、`dec/dec_gui.py`：解密工具（命令行和图形界面）
 
-This project provides two sets of tools for encryption and decryption:
+This project provides encryption and decryption tools:
 - `enc/enc.py`, `enc/enc_gui.py`: Encryption tools (command-line and GUI)
-- `dec.py`, `dec_gui.py`: Decryption tools (command-line and GUI)
+- `dec/dec.py`, `dec/dec_gui.py`: Decryption tools (command-line and GUI)
 
 ---
 
@@ -78,31 +78,33 @@ python enc/enc_gui.py
 - Click the "Package File" button.
 
 ### 功能说明 / Features
+- 只保存私钥（private.pem），不保存公钥。
 - AES密钥仅在内存中存在，绝不会明文保存。
 - 只保存RSA加密后的AES密钥。
+- Only private.pem is saved, public.pem is not.
 - The AES key exists only in memory and is never saved in plaintext.
 - Only the RSA-encrypted AES key is saved.
 
 ---
 
-## 解密工具 dec.py, dec_gui.py / Decryption Tools
+## 解密工具 dec/dec.py, dec/dec_gui.py / Decryption Tools
 
 ### 命令行解密工具 / Command-line Decryption Tool
 ```bash
-python dec.py --enc_file <encrypted_program.bin> \
-              --enc_aes_key <encrypted_aes_key.bin> \
-              --privkey <private.pem> \
-              --output <output_file>
+python dec/dec.py --enc_file <encrypted_program.bin> \
+                  --enc_aes_key <encrypted_aes_key.bin> \
+                  --privkey <private.pem> \
+                  --output <output_file>
 ```
 
 #### 示例 / Example
 ```bash
-python dec.py --enc_file ./encrypted/encrypted_program.bin --enc_aes_key ./encrypted/encrypted_aes_key.bin --privkey ./key/private.pem --output ./decrypted_output
+python dec/dec.py --enc_file ./encrypted/encrypted_program.bin --enc_aes_key ./encrypted/encrypted_aes_key.bin --privkey ./key/private.pem --output ./decrypted_output
 ```
 
 ### 图形界面解密工具 / GUI Decryption Tool
 ```bash
-python dec_gui.py
+python dec/dec_gui.py
 ```
 - 选择加密文件、加密AES密钥、私钥和输出文件。
 - Select the encrypted file, encrypted AES key, private key, and output file.
@@ -110,10 +112,10 @@ python dec_gui.py
 - Click the "Decrypt File" button.
 
 ### 功能说明 / Features
+- 只需私钥（private.pem）即可解密。
 - AES密钥仅在内存中存在，绝不会明文保存。
-- 只保存RSA加密后的AES密钥。
+- Only private.pem is needed for decryption.
 - The AES key exists only in memory and is never saved in plaintext.
-- Only the RSA-encrypted AES key is saved.
 
 ---
 
@@ -138,8 +140,10 @@ Each folder contains a detailed README and comments for learning and experimenta
 ---
 
 ## 安全特性 / Security Features
+- 只保存私钥（private.pem），不保存公钥。
 - AES密钥仅在内存中存在，绝不会明文保存。
 - 只保存RSA加密后的AES密钥。
+- Only private.pem is saved, public.pem is not.
 - The AES key exists only in memory and is never saved in plaintext.
 - Only the RSA-encrypted AES key is saved.
 
