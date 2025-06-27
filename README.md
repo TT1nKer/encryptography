@@ -156,6 +156,6 @@ Copyright (c) 2024 Your Name
 
 This software is free for personal, educational, or non-commercial use.
 For commercial or business use, a paid license is required.
-Contact [your email or website] for commercial licensing.
+Contact [hostsjim22@gmail.com]TT1nker for commercial licensing.
 
 THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND...
