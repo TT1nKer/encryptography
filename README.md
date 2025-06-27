@@ -147,3 +147,11 @@ Each folder contains a detailed README and comments for learning and experimenta
 
 如有问题请联系开发者。
 If you have any questions, please contact the developer.
+
+Copyright (c) 2024 Your Name
+
+This software is free for personal, educational, or non-commercial use.
+For commercial or business use, a paid license is required.
+Contact [your email or website] for commercial licensing.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND...
